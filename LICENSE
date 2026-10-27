@@ -1,0 +1,72 @@
+AML Guardian Showcase - Review-Only License
+Version 1.0, October 27, 2026
+
+Copyright (c) 2026 Thiruvanandam Chinnadurai. All rights reserved,
+except for the limited permissions expressly granted below.
+
+1. Scope
+
+These terms apply only to material in this repository for which the copyright
+holder is entitled to grant permission, in versions distributed with these terms.
+This is a source-available portfolio, not an open-source license.
+
+2. Limited review permission
+
+You may view and inspect the covered material solely to assess the author's
+skills, including recruitment, hiring and technical portfolio review. You may
+make a local copy and run the unmodified application solely as reasonably
+necessary for that assessment, using synthetic data and a non-production
+environment. You must retain this license and applicable attribution notices.
+
+3. Restrictions
+
+Except as permitted in section 2, section 4, applicable law, or a separate written
+agreement with the copyright holder, no permission is granted to:
+
+- modify the material or create derivative works;
+- incorporate the material into another project, product or service;
+- redistribute, sublicense, sell or publish copies outside the hosting
+  platform's permitted repository functionality;
+- use the material for production, business operations, commercial exploitation,
+  or training or improving machine-learning models.
+
+Recruitment and hiring review permitted by section 2 is not prohibited merely
+because the reviewer acts for a commercial organization. All other rights are
+reserved. Contact the repository owner to request separate written permission.
+
+4. Hosting platform, third-party and statutory rights
+
+Nothing in this license restricts rights granted under GitHub's applicable Terms
+of Service for public repositories, including viewing and using GitHub's forking
+functionality. A platform fork does not grant additional rights under this
+license to modify, redistribute or exploit the covered material.
+
+Third-party software, dependencies and separately licensed material remain
+subject to their respective licenses. These terms do not replace those licenses,
+claim ownership of third-party material, or restrict rights that applicable law
+does not permit the copyright holder to restrict.
+
+5. Prior versions
+
+Earlier versions were distributed under the MIT License. This license does not
+revoke permissions already granted under that license or relicense third-party
+contributions without the necessary rights. Recipients of MIT-licensed versions
+retain their rights under the applicable MIT grant. These terms do not prevent
+access to or use of those earlier versions under their original terms.
+
+6. Termination
+
+The permissions granted by this license terminate upon breach of these terms.
+Termination does not affect independent rights under section 4 or rights in
+earlier versions under section 5.
+
+7. Disclaimer
+
+THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED
+BY APPLICABLE LAW, THE COPYRIGHT HOLDER SHALL NOT BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM THE MATERIAL OR ITS USE.
+
+The application is a synthetic-data demonstration, not legal, regulatory or
+financial advice and not a production anti-money-laundering system.

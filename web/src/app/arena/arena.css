@@ -1,0 +1,19 @@
+.arena-page{max-width:1200px;margin:auto;padding:24px;color:#172b45;overflow-wrap:anywhere}
+.arena-page nav{display:flex;gap:20px;flex-wrap:wrap}
+.arena-page a{text-decoration:underline;color:#175ba6}
+.arena-page h1{font-size:2rem}
+.arena-card{min-width:0;background:white;border:1px solid #cad5e0;border-radius:8px;padding:20px;margin:18px 0}
+.arena-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.arena-page label{display:block;margin:12px 0;font-weight:600}
+.arena-page select{display:block;width:100%;max-width:500px;padding:10px;background:white;border:1px solid #8194ad;border-radius:4px;color:#172b45}
+.arena-page button{padding:10px 16px;margin:8px 12px 8px 0;border:1px solid #175ba6;border-radius:4px;background:#edf4fb;color:#172b45;cursor:pointer}
+.arena-page button:disabled{opacity:.55;cursor:wait}
+.arena-page :focus-visible{outline:3px solid #b75c00;outline-offset:3px}
+.arena-metrics{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:10px}
+.arena-metrics dd{margin:0}
+.arena-change{border-left:4px solid #175ba6;padding:4px 14px;margin:14px 0;background:#f3f6fa}
+.arena-id{overflow-wrap:anywhere;font-size:.85rem;display:block}
+.arena-page pre{overflow:auto;max-width:100%}
+.arena-page li{margin:15px 0}
+.arena-page [role=alert]{background:#fff2e9;border:1px solid #a74700;padding:14px}
+@media(max-width:700px){.arena-pair{grid-template-columns:1fr}.arena-page{padding:16px}.arena-card{padding:14px}}

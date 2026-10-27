@@ -1,0 +1,293 @@
+{
+  "recorded_at": "2026-10-25T05:58:06.149935+00:00",
+  "provider": "ollama",
+  "model": "llama3.2:3b",
+  "live_model": true,
+  "tasks": 10,
+  "complete_model_runs": 10,
+  "mean_required_tool_coverage": 1.0,
+  "invalid_calls": 0,
+  "model_calls": 70,
+  "median_latency_ms": 33737.485,
+  "exact_extract_fidelity": true,
+  "abstention_cases": [
+    {
+      "question": "How do I bake a chocolate cake?",
+      "mode": "abstained",
+      "correct": true
+    },
+    {
+      "question": "Explain quantum gravity",
+      "mode": "abstained",
+      "correct": true
+    }
+  ],
+  "results": [
+    {
+      "id": "INV-01",
+      "scenario": "structuring",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 37837.17,
+      "errors": [],
+      "deterministic_decision": "FILE_SAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-02",
+      "scenario": "routine",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 36572.83,
+      "errors": [],
+      "deterministic_decision": "CLEAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-03",
+      "scenario": "screening",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 30902.14,
+      "errors": [],
+      "deterministic_decision": "HOLD",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-04",
+      "scenario": "review",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 43506.69,
+      "errors": [],
+      "deterministic_decision": "REVIEW",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-05",
+      "scenario": "structuring",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 40591.29,
+      "errors": [],
+      "deterministic_decision": "FILE_SAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-06",
+      "scenario": "screening",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 21560.92,
+      "errors": [],
+      "deterministic_decision": "HOLD",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-07",
+      "scenario": "review",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 26763.23,
+      "errors": [],
+      "deterministic_decision": "REVIEW",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-08",
+      "scenario": "routine",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 37555.72,
+      "errors": [],
+      "deterministic_decision": "CLEAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-09",
+      "scenario": "structuring",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 26535.39,
+      "errors": [],
+      "deterministic_decision": "FILE_SAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-10",
+      "scenario": "review",
+      "mode": "model",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "lookup_account",
+        "sanctions_screen",
+        "search_policy",
+        "search_typologies"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": true,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 0,
+      "latency_ms": 26326.07,
+      "errors": [],
+      "deterministic_decision": "REVIEW",
+      "invariant_errors": []
+    }
+  ],
+  "limitations": [
+    "Required-tool coverage is a rubric, not semantic reasoning accuracy.",
+    "Extract fidelity is guaranteed by code-owned text, not an LLM-as-judge metric.",
+    "Fallback/scripted actions never count as successful model selections.",
+    "Ten synthetic tasks are not evidence of real-world AML effectiveness."
+  ]
+}

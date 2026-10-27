@@ -1,0 +1,46 @@
+[project]
+name = "aml-guardian"
+version = "0.1.0"
+description = "Agentic multi-agent AML/BSA investigation platform (LangGraph)"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=0.2",
+    "langchain-core>=0.2.40",
+    "networkx>=3.2.1,<3.4",
+    "langgraph-checkpoint-sqlite>=2,<4",
+    "mcp>=1.30,<2",
+    "opentelemetry-api>=1.28,<2",
+    "opentelemetry-sdk>=1.28,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.28,<1", "ruff>=0.9", "mypy>=1.14"]
+docs = ["Markdown>=3.7,<4"]
+web = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aml_guardian = ["arena-fixtures-v1.json"]
+
+[project.scripts]
+guardian-mcp = "aml_guardian.mcp_server:main"
+guardian-mcp-smoke = "aml_guardian.mcp_client:main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src/aml_guardian/registry.py", "src/aml_guardian/investigator.py"]
+strict = true
+follow_imports = "silent"

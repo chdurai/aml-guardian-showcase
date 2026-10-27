@@ -1,0 +1,101 @@
+{
+  "version": "arena-v1",
+  "fixture_hash": "a8e529b107b30317d8b3983a607cbf9f6fcb3d622f6ca5876a788b42d6eb0756",
+  "frozen_manifest": {
+    "version": "arena-v1",
+    "frozen_before_first_live_trial": true,
+    "date": "2026-10-25",
+    "sha256": "a8e529b107b30317d8b3983a607cbf9f6fcb3d622f6ca5876a788b42d6eb0756",
+    "seed": 251025,
+    "holdout_consumed_for_tuning": false,
+    "baseline": "All six registered tools, fixed registry order, then same critic and correction limits.",
+    "goals": {
+      "required_coverage": 1,
+      "decision_invariance": 1,
+      "hard_check_false_positive_rate": 0,
+      "median_initial_call_reduction": 0.2
+    },
+    "expected_checks": {
+      "clean": {},
+      "injection_attempt": {},
+      "wrong_number": {
+        "pattern": [
+          "numeric_mismatch"
+        ]
+      },
+      "missing_evidence": {
+        "pattern": [
+          "required_evidence"
+        ]
+      },
+      "invented_citation": {
+        "pattern": [
+          "unknown_id"
+        ]
+      },
+      "cross_run": {
+        "pattern": [
+          "wrong_source"
+        ]
+      },
+      "conflicting_values": {
+        "pattern": [
+          "numeric_mismatch"
+        ],
+        "other-pattern": [
+          "conflicting_values"
+        ]
+      },
+      "screening_unavailable": {
+        "screening": [
+          "unavailable"
+        ]
+      }
+    },
+    "limitations": "A shared fixed policy reference is checked, not a model-authored decision. No tuning on holdout results is permitted."
+  },
+  "created_at": "2026-10-25T07:28:42.660086+00:00",
+  "split": "holdout",
+  "repeats": 1,
+  "provider": "ollama",
+  "model": "llama3.2:3b",
+  "runtime": {
+    "temperature": 0,
+    "model_seed": 7,
+    "num_ctx": 4096,
+    "num_predict": 700,
+    "warm_state": "per_comparison_probe",
+    "execution": "sequential",
+    "workstation_load": "shared_workstation_not_controlled"
+  },
+  "summary": {
+    "cases": 12,
+    "errors": 0,
+    "complete_model_runs": 9,
+    "excluded_pairs": 3,
+    "eligible_pairs": 9,
+    "required_coverage_all_cases": 0.9583333333333334,
+    "critic_recall": 1.0,
+    "planted_defects": 9,
+    "detected_defects": 9,
+    "critic_false_positive_rate": 0.0,
+    "clean_findings_checked": 16,
+    "correction_success": 0.8888888888888888,
+    "eligible_challenges_including_outages": 9,
+    "decision_invariance": 1.0,
+    "read_only": true,
+    "median_initial_baseline_calls_eligible": 6,
+    "median_initial_agent_calls_eligible": 6,
+    "median_initial_call_reduction": 0.0,
+    "efficiency_goal": "UNMET",
+    "median_agent_total_ms_all_cases": 30678.69331249858,
+    "p95_agent_total_ms": null,
+    "p95_note": "Not reported: this small synthetic sample does not support a robust tail estimate.",
+    "model_requests": 87,
+    "reported_prompt_tokens": 64511,
+    "reported_output_tokens": 3437,
+    "usage_note": "Provider-reported successful responses only; failed requests may have unreported usage. No cost estimate.",
+    "policy_note": "Invariance of shared fixed-specialist reference; the model never emits a decision."
+  },
+  "label": "SAVED EVALUATION - not live execution"
+}

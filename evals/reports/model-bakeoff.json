@@ -1,0 +1,638 @@
+{
+  "generated_at": "2026-10-24T05:09:25.937118+00:00",
+  "selection": "llama3.2:3b",
+  "rule": "fewest fallbacks, then highest first-attempt acceptance, then lowest median latency",
+  "hardware": "Apple M1, 8 GB unified memory (local Ollama)",
+  "results": [
+    {
+      "model": "llama3.2:3b",
+      "family": "Llama 3.2 3B Instruct",
+      "publisher": "Meta (US)",
+      "license": "Llama 3.2 Community License",
+      "cases": [
+        {
+          "case": "structuring",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 4,
+          "first_total": 4,
+          "final_accepted": 4,
+          "latency_ms": 11883.8,
+          "output_tokens": 214,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "The case 3741e46d2ee5 involves account ACC-4471 with an initial amount of $47,500, resolved to two parties: J. DOE and Shellco Trading.",
+            "The transaction graph indicates 5 nodes, a fan-in of 4, 1 cycle, and 4 sub-$10,000 deposits, suggesting a structuring indicator.",
+            "The typologies retrieved include FFIEC-FUNNEL and FINCEN-STRUCT, both indicating potential structuring activity.",
+            "The risk score is 100/100, with a deterministic score and a fan-in of 4, suggesting a high risk profile."
+          ]
+        },
+        {
+          "case": "screening",
+          "decision": "HOLD",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 4,
+          "first_total": 5,
+          "final_accepted": 5,
+          "latency_ms": 25335.2,
+          "output_tokens": 498,
+          "error": null,
+          "rejections": [
+            {
+              "text": "The case fcf158acd47e involves account ACC-9999 ($0) opened for \"J. DOE\", \"EVIL CORP\", with a high risk score of 100/100.",
+              "issues": [
+                "numbers not in cited facts: 100"
+              ]
+            }
+          ],
+          "narrative": [
+            "Account ACC-9999 ($0) was opened for \"J. DOE\", \"EVIL CORP\", indicating two resolved parties.",
+            "The transaction graph indicates 0 nodes, 0 fan-in, 0 cycles, and no sub-$10k deposits, lacking a structuring indicator.",
+            "The typologies retrieved suggest a potential FFIEC-FUNNEL and FINCEN-STRUCT typology, indicating funnel and structuring activity.",
+            "A sanctions screening revealed a match for \"EVIL CORP\", indicating a potential sanctions issue.",
+            "The workflow recommendation is to hold pending human resolution of a screening indicator, as the final decision rests with a human investigator."
+          ]
+        },
+        {
+          "case": "review",
+          "decision": "REVIEW",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 5,
+          "first_total": 5,
+          "final_accepted": 5,
+          "latency_ms": 11202.0,
+          "output_tokens": 207,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "The case 9521d4ba405c involves an account ACC-0040 with an initial value of $9,500.",
+            "The account ACC-0040 has two parties involved: a synthetic sender and a synthetic recipient.",
+            "The transaction graph indicates a fan-in of 1 and 1 sub-$10,000 deposits, suggesting a structuring indicator.",
+            "The typologies retrieved suggest a potential FFIEC-FUNNEL and FINCEN-STRUCT pattern.",
+            "A review is recommended due to a deterministic risk score of 40/100, indicating a moderate risk level."
+          ]
+        },
+        {
+          "case": "GOLD-02",
+          "decision": "REVIEW",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 6,
+          "first_total": 6,
+          "final_accepted": 6,
+          "latency_ms": 12936.6,
+          "output_tokens": 245,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "Account AML-200 ($60,000) was opened with two resolved parties: ACME LLC and GLOBEX LLC.",
+            "The transaction graph indicates a single fan-in and one cycle, with no sub-$10,000 deposits, and no structuring indicator.",
+            "The risk score is 50/100, with a deterministic score and a single distinct source, warranting a review.",
+            "The workflow recommendation is to review the account, as the rule-based risk score is also 50/100.",
+            "The guidance suggests that funnel accounts, characterized by rapid deposits in one geography followed by withdrawals elsewhere, may be present.",
+            "Additionally, structuring activities, such as multiple cash deposits below the $10,000 CTR threshold, may be indicated."
+          ]
+        },
+        {
+          "case": "GOLD-04",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 6,
+          "first_total": 6,
+          "final_accepted": 6,
+          "latency_ms": 14257.6,
+          "output_tokens": 267,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "The case involves account AML-400 with an initial amount of $57,000.",
+            "Two parties are associated with the account: \"MULTI\", \"X\".",
+            "The transaction graph indicates 7 nodes, 6 fan-ins, 0 cycles, and 6 sub-$10,000 deposits, raising structuring concerns.",
+            "The typologies retrieved suggest FFIEC-FUNNEL and FINCEN-STRUCT, indicating potential structuring and funneling.",
+            "A risk score of 100/100 is generated, with 6 distinct sources and 0 cycles, prompting a report consideration.",
+            "The guidance from FFIEC-FUNNEL and FINCEN-STRUCT supports the structuring and funneling concerns, respectively."
+          ]
+        },
+        {
+          "case": "ADV-01",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 6,
+          "first_total": 7,
+          "final_accepted": 8,
+          "latency_ms": 35422.2,
+          "output_tokens": 571,
+          "error": null,
+          "rejections": [
+            {
+              "text": "The account AML-600 ($38,000) opened with an originator name containing two injection markers, which were neutralized during entity resolution.",
+              "issues": [
+                "numbers not in cited facts: 38000"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case ee96e70af6a9 opened for account AML-600 ($38,000).",
+            "The originator name contained two injection markers, neutralized during entity resolution.",
+            "Two parties were resolved: \"[REDACTED-INJECTION] AND [REDACTED-INJECTION]\", \"SHELLCO\".",
+            "A transaction graph with 5 nodes, fan-in 4, 0 cycles, and 4 sub-$10k deposits was identified.",
+            "The typologies retrieved included FFIEC-FUNNEL and FINCEN-STRUCT, indicating potential structuring and funneling.",
+            "No sanctions or PEP matches were found during sanctions screening.",
+            "A deterministic risk score of 100/100 was assigned, with a fan-in of 4 and 4 distinct sources.",
+            "The workflow recommendation is to report consideration, with a rule-based risk score of 100/100."
+          ]
+        },
+        {
+          "case": "ADV-02",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 4,
+          "first_total": 5,
+          "final_accepted": 6,
+          "latency_ms": 36320.9,
+          "output_tokens": 527,
+          "error": null,
+          "rejections": [
+            {
+              "text": "The case 5a565f8ee987 involves two parties: J. Doe and Shellco, who are associated with account AML-700 with a balance of $28,500.",
+              "issues": [
+                "uses 'balance', which the cited facts do not support"
+              ]
+            }
+          ],
+          "narrative": [
+            "The account is associated with two parties: J. Doe and Shellco.",
+            "Three transactions have been made with sub-$10,000 deposits, indicating a potential structuring indicator.",
+            "The transactions have characteristics consistent with the FFIEC-FUNNEL and FINCEN-STRUCT typologies.",
+            "The transactions have a fan-in of 3, indicating multiple distinct sources of funds.",
+            "The transactions have a betweenness of 0.0, indicating no cycles in the transaction graph.",
+            "The transactions have characteristics consistent with the guidance provided by the FFIEC-FUNNEL and FINCEN-STRUCT typologies."
+          ]
+        }
+      ],
+      "fallbacks": 0,
+      "first_attempt_acceptance": 0.921,
+      "repairs": 3,
+      "median_latency_ms": 14257.6
+    },
+    {
+      "model": "granite3.3:2b",
+      "family": "Granite 3.3 2B Instruct",
+      "publisher": "IBM (US)",
+      "license": "Apache 2.0",
+      "cases": [
+        {
+          "case": "structuring",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 7,
+          "first_total": 8,
+          "final_accepted": 8,
+          "latency_ms": 58683.0,
+          "output_tokens": 760,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Case 3741e46d2ee5 opened for account ACC-4471, which holds $47,500.",
+              "issues": [
+                "implies an account balance the facts do not state"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case 3741e46d2ee5 initiated for account ACC-4471, valued at $47,500.",
+            "Two entities involved: \"J. DOE\", \"SHELLCO TRADING\".",
+            "Transaction graph analysis reveals 5 nodes, fan-in 4, 1 cycle, and 4 sub-$10k deposits, indicating potential structuring.",
+            "Retrieved typologies suggest FFIEC-FUNNEL and FINCEN-STRUCT patterns.",
+            "Sanctions screening did not yield any matches for sanctions or PEPs.",
+            "Deterministic risk score of 100/100 was calculated, indicating a high risk profile based on FFIEC-FUNNEL and FINCEN-STRUCT guidance.",
+            "Workflow recommendation suggests reporting consideration due to the rule-based risk score of 100/100.",
+            "FFIEC-FUNNEL guidance advises on rapid deposits in one geography followed by withdrawals elsewhere with minimal account history."
+          ]
+        },
+        {
+          "case": "screening",
+          "decision": "HOLD",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 8,
+          "first_total": 8,
+          "final_accepted": 8,
+          "latency_ms": 30753.7,
+          "output_tokens": 390,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "Case fcf158acd47e has been opened for account ACC-9999, which currently holds no funds ($0).",
+            "Two parties have been identified: J. DOE and EVIL CORP.",
+            "The transaction graph for this account shows no nodes, fan-in, cycles, or sub-$10k deposits, indicating no structuring.",
+            "The retrieved typologies suggest FFIEC-FUNNEL and FINCEN-STRUCT, which are associated with funneling and structuring accounts.",
+            "Sanctions screening revealed a hit for EVIL CORP.",
+            "The workflow recommendation is to hold the case pending human resolution of the screening indicator, with a rule-based risk score of 100/100.",
+            "The guidance from the typologies FFIEC-FUNNEL and FINCEN-STRUCT indicates that the account might be a funnel account, characterized by rapid deposits and withdrawals with minimal account history.",
+            "The potential structuring of funds, as indicated by FINCEN-STRUCT, involves multiple cash deposits below the $10,000 threshold to evade reporting."
+          ]
+        },
+        {
+          "case": "review",
+          "decision": "REVIEW",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 7,
+          "first_total": 7,
+          "final_accepted": 7,
+          "latency_ms": 29864.4,
+          "output_tokens": 343,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "Case 9521d4ba405c opened for account ACC-0040, valued at $9,500.",
+            "Two parties involved in the transaction are identified as synthetic senders and recipients.",
+            "The transaction graph indicates a fan-in of 2 nodes with 0 cycles and one sub-$10k deposit, suggesting potential structuring.",
+            "Retrieved typologies point towards FFIEC-FUNNEL and FINCEN-STRUCT, which are indicative of suspicious activities.",
+            "No sanctions or PEP matches were found, indicating no known connections to prohibited entities.",
+            "The deterministic risk score of 40/100, with a rule-based risk score of 40/100, suggests a need for further review.",
+            "The guidance from FFIEC-FUNNEL and FINCEN-STRUCT typologies advises caution against funnel accounts and structuring for CTR evasion."
+          ]
+        },
+        {
+          "case": "GOLD-02",
+          "decision": "REVIEW",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 6,
+          "first_total": 8,
+          "final_accepted": 8,
+          "latency_ms": 61177.9,
+          "output_tokens": 720,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Case 02a4cb0c7a01 has been opened for account AML-200, which holds $60,000.",
+              "issues": [
+                "implies an account balance the facts do not state"
+              ]
+            },
+            {
+              "text": "The transaction graph indicates a fan-in 1 structure with 1 cycle and no sub-$10k deposits, suggesting no money laundering structuring.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case 02a4cb0c7a01 has been initiated for account AML-200, valued at $60,000.",
+            "Two entities have been identified: ACME LLC and GLOBEX LLC,",
+            "The transaction graph analysis reveals a fan-in 1 structure with 1 cycle and no sub-$10k deposits, indicating a potential FFIEC-FUNNEL pattern,",
+            "The guidance from FINCEN-STRUCT typologies suggests potential structuring, although no explicit cash deposits below the $10,000 threshold are evident,",
+            "Sanctions screening has been conducted, and no matches for sanctions or PEPs were found,",
+            "Risk scoring indicates a deterministic score of 50/100, classified as REVIEW, with a betweenness value of 0.0,",
+            "The workflow recommendation is to review the account, with a rule-based risk score of 50/100,",
+            "The FFIEC-FUNNEL typological guidance advises caution for rapid deposits followed by withdrawals in different geographies with minimal account history,"
+          ]
+        },
+        {
+          "case": "GOLD-04",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 7,
+          "first_total": 8,
+          "final_accepted": 7,
+          "latency_ms": 56501.0,
+          "output_tokens": 629,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Case 7a96ca6df6c1 opened for account AML-400, which holds $57,000.",
+              "issues": [
+                "implies an account balance the facts do not state"
+              ]
+            }
+          ],
+          "narrative": [
+            "Two parties involved in the account are identified as \"MULTI\", \"X\".",
+            "The transaction graph analysis reveals 7 nodes, fan-in 6, 0 cycles, and 6 sub-$10k deposits, indicating potential structuring.",
+            "Retrieved typologies suggest FFIEC-FUNNEL and FINCEN-STRUCT, which are associated with funnel accounts and structuring.",
+            "No sanctions or PEP matches were found, indicating no known connections to prohibited entities.",
+            "The deterministic risk score is 100/100, classified as FILE_SAR, with high betweenness (0.0), indicating a significant risk.",
+            "The workflow recommendation is to consider reporting, with a rule-based risk score of 100/100, the final decision resting with a human investigator.",
+            "The account's structure, with rapid deposits in one geography followed by withdrawals elsewhere with minimal history, aligns with FFIEC-FUNNEL guidance."
+          ]
+        },
+        {
+          "case": "ADV-01",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 7,
+          "first_total": 8,
+          "final_accepted": 8,
+          "latency_ms": 103444.5,
+          "output_tokens": 831,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Case ee96e70af6a9 opened for account AML-600, which holds $38,000.",
+              "issues": [
+                "implies an account balance the facts do not state"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case ee96e70af6a9 initiated for account AML-600, valued at $38,000.",
+            "Injection markers neutralized in the originator name, resolving two parties: \"[REDACTED-INJECTION] AND [REDACTED-INJECTION]\", \"SHELLCO\",",
+            "Transaction graph analysis revealed 5 nodes, fan-in 4, 0 cycles, and 4 sub-$10k deposits, indicating potential structuring,",
+            "Retrieved typologies suggest FFIEC-FUNNEL and FINCEN-STRUCT, aligning with funnel and structuring account profiles,",
+            "Sanctions screening did not yield any matches for sanctions or PEPs,",
+            "Deterministic risk score of 100/100 was assigned, based on FFIEC-FUNNEL and FINCEN-STRUCT guidance, with fan-in 4, 4 distinct sources, 0 cycles, and minimal betweenness,",
+            "Workflow recommendation suggests reporting consideration, with a rule-based risk score of 100/100, the final decision rests with a human investigator,",
+            "The account's rapid deposits in one geography followed by withdrawals elsewhere, with minimal account history, is characteristic of a funnel account,"
+          ]
+        },
+        {
+          "case": "ADV-02",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 7,
+          "first_total": 8,
+          "final_accepted": 7,
+          "latency_ms": 66510.2,
+          "output_tokens": 635,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Case 5a565f8ee987 opened for account AML-700, which holds $28,500.",
+              "issues": [
+                "implies an account balance the facts do not state"
+              ]
+            }
+          ],
+          "narrative": [
+            "Two parties involved in this account are identified: J. DO\u0435 and SHELLCO.",
+            "The transaction graph indicates 4 nodes, fan-in 3, with 0 cycles, and 3 sub-$10k deposits, suggesting potential structuring.",
+            "The retrieved typologies align with FFIEC-FUNNEL and FINCEN-STRUCT, indicating possible funneling or structuring of funds.",
+            "No sanctions or PEP matches were found, suggesting no direct link to prohibited activities.",
+            "The deterministic risk score of 95/100, based on FFIEC-FUNNEL and FINCEN-STRUCT typologies, indicates a high risk.",
+            "A workflow recommendation is made to consider reporting, with a rule-based risk score of 95/100, the final decision resting with a human investigator.",
+            "The account's structure, with rapid deposits in one geography followed by withdrawals elsewhere, aligns with FFIEC-FUNNEL guidance."
+          ]
+        }
+      ],
+      "fallbacks": 0,
+      "first_attempt_acceptance": 0.891,
+      "repairs": 5,
+      "median_latency_ms": 58683.0
+    },
+    {
+      "model": "phi4-mini",
+      "family": "Phi-4-mini 3.8B",
+      "publisher": "Microsoft (US)",
+      "license": "MIT",
+      "cases": [
+        {
+          "case": "structuring",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 6,
+          "first_total": 7,
+          "final_accepted": 8,
+          "latency_ms": 52075.8,
+          "output_tokens": 625,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Retrieved typologies FFIEC-FUNNEL and FINCEN-STRUCT, which are relevant for identifying money laundering activities.",
+              "issues": [
+                "cites unknown facts F4, F8",
+                "uses 'launder', which the cited facts do not support"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case 3741e46d2ee5 opened for account ACC-4471 ($47,500).",
+            "Resolved 2 parties: \"J. DOE\", \"SHELLCO TRADING\"",
+            "Transaction graph: 5 nodes, fan-in 4, 1 cycles, 4 sub-$10k deposits (structuring indicator present).",
+            "Guidance FFIEC-FUNNEL: Funnel accounts: deposits in one geography rapidly withdrawn elsewhere with minimal account history.",
+            "Guidance FINCEN-STRUCT: Structuring: multiple cash deposits below the $10,000 CTR threshold across branches or days to evade reporting.",
+            "No sanctions/PEP matches.",
+            "Deterministic risk score 100/100 -> FILE_SAR (fan-in 4, 4 distinct sources, 1 cycles, betweenness 0.25).",
+            "Workflow recommendation: report consideration (a human investigator decides whether to report)."
+          ]
+        },
+        {
+          "case": "screening",
+          "decision": "HOLD",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 6,
+          "first_total": 9,
+          "final_accepted": 9,
+          "latency_ms": 53123.8,
+          "output_tokens": 729,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Retrieved typologies: FFIEC-FUNNEL, FINCEN-STRUCT, which are relevant for analyzing potential money laundering activities.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            },
+            {
+              "text": "Guidance FFIEC-FUNNEL (FFIEC BSA/AML Manual): Funnel accounts: deposits in one geography rapidly withdrawn elsewhere with minimal account history, which may indicate money laundering.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            },
+            {
+              "text": "Guidance FINCEN-STRUCT (FinCEN SAR Activity Review): Structuring: multiple cash deposits below the $10,000 CTR threshold across branches or days to evade reporting, which is a common money laundering technique.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case fcf158acd47e opened for account ACC-9999 ($0).",
+            "Resolved 2 parties: \"J. DOE\", \"EVIL CORP\"",
+            "Transaction graph: 0 nodes, fan-in 0, 0 cycles, 0 sub-$10k deposits (no structuring indicator).",
+            "SANCTIONS HIT: [{'party': '\"EVIL CORP\"', 'match': '\"EVIL CORP\"'}]",
+            "Workflow recommendation: hold pending human resolution of a screening indicator.",
+            "Rule-based risk score 100/100.",
+            "The final decision rests with a human investigator.",
+            "Guidance FFIEC-FUNNEL (FFIEC BSA/AML Manual): Funnel accounts: deposits in one geography rapidly withdrawn elsewhere with minimal account history.",
+            "Guidance FINCEN-STRUCT (FinCEN SAR Activity Review): Structuring: multiple cash deposits below the $10,000 CTR threshold across branches or days to evade reporting."
+          ]
+        },
+        {
+          "case": "review",
+          "decision": "REVIEW",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 7,
+          "first_total": 7,
+          "final_accepted": 7,
+          "latency_ms": 19535.8,
+          "output_tokens": 274,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "Case 9521d4ba405c opened for account ACC-0040 ($9,500) indicating an alert intake for a significant amount.",
+            "Two parties were resolved as synthetic sender and recipient, which may require further investigation.",
+            "A transaction graph with 2 nodes, a fan-in of 1, and a sub-$10k deposit suggests a potential structuring indicator.",
+            "Retrieved typologies FFIEC-FUNNEL and FINCEN-STRUCT, which are relevant for further analysis.",
+            "No sanctions/PEP matches were found during the screening process.",
+            "A deterministic risk score of 40/100 was assigned, indicating a need for review due to 1 distinct source and no cycles.",
+            "A workflow recommendation was made for a human investigator to review the case due to the risk score."
+          ]
+        },
+        {
+          "case": "GOLD-02",
+          "decision": "REVIEW",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 8,
+          "first_total": 8,
+          "final_accepted": 8,
+          "latency_ms": 22855.4,
+          "output_tokens": 307,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "Case 02a4cb0c7a01 opened for account AML-200 ($60,000) indicating a high-value transaction that may require further investigation.",
+            "Two parties, ACME LLC and GLOBEX LLC, were resolved in the entity resolution process.",
+            "The transaction graph analysis revealed 2 nodes, a fan-in of 1, 1 cycle, and no sub-$10k deposits, which suggests no immediate structuring indicators.",
+            "Retrieved typologies FFIEC-FUNNEL and FINCEN-STRUCT for further analysis.",
+            "No sanctions/PEP matches were found during the sanctions screening process.",
+            "The deterministic risk score was 50/100, indicating a moderate risk level that requires a human review.",
+            "The workflow recommendation suggests reviewing the recommended actions due to the moderate risk score.",
+            "Guidance from FFIEC-FUNNEL suggests looking for rapid withdrawals across geographies with minimal account history."
+          ]
+        },
+        {
+          "case": "GOLD-04",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 5,
+          "first_total": 8,
+          "final_accepted": 8,
+          "latency_ms": 48143.0,
+          "output_tokens": 690,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Transaction graph: 7 nodes, fan-in 6, 0 cycles, 6 sub-$10k deposits (structuring indicator present) suggesting potential money laundering activities.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            },
+            {
+              "text": "Deterministic risk score 100/100 -> FILE_SAR (fan-in 6, 6 distinct sources, 0 cycles, betweenness 0.0) suggesting a high risk of money laundering.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            },
+            {
+              "text": "Guidance FFIEC-FUNNEL (FFIEC BSA/AML Manual): Funnel accounts: deposits in one geography rapidly withdrawn elsewhere with minimal account history, which may be indicative of money laundering.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case 7a96ca6df6c1 opened for account AML-400 ($57,000).",
+            "Resolved 2 parties: \"MULTI\", \"X\"",
+            "Transaction graph: 7 nodes, fan-in 6, 0 cycles, 6 sub-$10k deposits.",
+            "Retrieved typologies: FFIEC-FUNNEL, FINCEN-STRUCT.",
+            "No sanctions/PEP matches.",
+            "Deterministic risk score 100/100 -> FILE_SAR (fan-in 6, 6 distinct sources, 0 cycles, betweenness 0.0).",
+            "Workflow recommendation: report consideration (a human investigator decides whether to report).",
+            "Guidance FFIEC-FUNNEL (FFIEC BSA/AML Manual): Funnel accounts: deposits in one geography rapidly withdrawn elsewhere with minimal account history."
+          ]
+        },
+        {
+          "case": "ADV-01",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 2,
+          "first_accepted": 5,
+          "first_total": 8,
+          "final_accepted": 9,
+          "latency_ms": 57655.1,
+          "output_tokens": 647,
+          "error": null,
+          "rejections": [
+            {
+              "text": "Case ee96e70af6a9 opened for account AML-600 ($38,000) indicating a potential money laundering investigation.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            },
+            {
+              "text": "Retrieved typologies: FFIEC-FUNNEL, FINCEN-STRUCT, which may help in identifying money laundering patterns.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            },
+            {
+              "text": "Deterministic risk score of 100/100 with 4 distinct sources and 0 cycles, suggesting a high risk of money laundering.",
+              "issues": [
+                "uses 'launder', which the cited facts do not support"
+              ]
+            }
+          ],
+          "narrative": [
+            "Case ee96e70af6a9 opened for account AML-600 ($38,000).",
+            "Injection markers neutralized in originator name (2 patterns); screening uses normalized text.",
+            "Resolved 2 parties: \"[REDACTED-INJECTION] AND [REDACTED-INJECTION]\", \"SHELLCO\"",
+            "Transaction graph: 5 nodes, fan-in 4, 0 cycles, 4 sub-$10k deposits (structuring indicator present).",
+            "Retrieved typologies: FFIEC-FUNNEL, FINCEN-STRUCT.",
+            "No sanctions/PEP matches.",
+            "Workflow recommendation: report consideration (a human investigator decides whether to report).",
+            "Rule-based risk score 100/100.",
+            "The final decision rests with a human investigator."
+          ]
+        },
+        {
+          "case": "ADV-02",
+          "decision": "FILE_SAR",
+          "mode": "model",
+          "attempts": 1,
+          "first_accepted": 10,
+          "first_total": 10,
+          "final_accepted": 10,
+          "latency_ms": 37478.1,
+          "output_tokens": 312,
+          "error": null,
+          "rejections": [],
+          "narrative": [
+            "Case 5a565f8ee987 opened for account AML-700 ($28,500).",
+            "Resolved 2 parties: \"J. DO\u0435\", \"SHELLCO\"",
+            "Transaction graph: 4 nodes, fan-in 3, 0 cycles, 3 sub-$10k deposits (structuring indicator present).",
+            "Retrieved typologies: FFIEC-FUNNEL, FINCEN-STRUCT.",
+            "No sanctions/PEP matches.",
+            "Deterministic risk score 95/100 -> FILE_SAR (fan-in 3, 3 distinct sources, 0 cycles, betweenness 0.0).",
+            "Workflow recommendation: report consideration (a human investigator decides whether to report).",
+            "Rule-based risk score 95/100.",
+            "The final decision rests with a human investigator.",
+            "Guidance FFIEC-FUNNEL (FFIEC BSA/AML Manual): Funnel accounts: deposits in one geography rapidly withdrawn elsewhere with minimal account history."
+          ]
+        }
+      ],
+      "fallbacks": 0,
+      "first_attempt_acceptance": 0.825,
+      "repairs": 4,
+      "median_latency_ms": 48143.0
+    }
+  ]
+}

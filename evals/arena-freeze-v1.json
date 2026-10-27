@@ -1,0 +1,26 @@
+{
+  "version": "arena-v1",
+  "frozen_before_first_live_trial": true,
+  "date": "2026-10-25",
+  "sha256": "a8e529b107b30317d8b3983a607cbf9f6fcb3d622f6ca5876a788b42d6eb0756",
+  "seed": 251025,
+  "holdout_consumed_for_tuning": false,
+  "baseline": "All six registered tools, fixed registry order, then same critic and correction limits.",
+  "goals": {
+    "required_coverage": 1,
+    "decision_invariance": 1,
+    "hard_check_false_positive_rate": 0,
+    "median_initial_call_reduction": 0.2
+  },
+  "expected_checks": {
+    "clean": {},
+    "injection_attempt": {},
+    "wrong_number": {"pattern": ["numeric_mismatch"]},
+    "missing_evidence": {"pattern": ["required_evidence"]},
+    "invented_citation": {"pattern": ["unknown_id"]},
+    "cross_run": {"pattern": ["wrong_source"]},
+    "conflicting_values": {"pattern": ["numeric_mismatch"], "other-pattern": ["conflicting_values"]},
+    "screening_unavailable": {"screening": ["unavailable"]}
+  },
+  "limitations": "A shared fixed policy reference is checked, not a model-authored decision. No tuning on holdout results is permitted."
+}

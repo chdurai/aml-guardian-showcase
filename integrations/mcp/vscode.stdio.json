@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "guardian": {
+      "type": "stdio",
+      "command": "/ABSOLUTE/PATH/TO/aml-guardian-showcase/.venv/bin/python",
+      "args": ["-m", "aml_guardian.mcp_server"],
+      "env": {"AML_TRACE_CONSOLE": "0"}
+    }
+  }
+}

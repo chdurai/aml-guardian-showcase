@@ -1,0 +1,32 @@
+{
+  "version": "arena-v1",
+  "seed": 251025,
+  "dev": [
+    ["dev-01", "clean", 1, 3000, false],
+    ["dev-02", "wrong_number", 3, 9500, false],
+    ["dev-03", "missing_evidence", 2, 9200, false],
+    ["dev-04", "screening_unavailable", 4, 9400, true],
+    ["dev-05", "injection_attempt", 2, 5000, false],
+    ["dev-06", "invented_citation", 5, 9700, false],
+    ["dev-07", "cross_run", 6, 9800, false],
+    ["dev-08", "conflicting_values", 3, 9600, false],
+    ["dev-09", "clean", 7, 1000, true],
+    ["dev-10", "wrong_number", 8, 9900, false],
+    ["dev-11", "missing_evidence", 9, 20000, false],
+    ["dev-12", "clean", 10, 2500, false]
+  ],
+  "holdout": [
+    ["holdout-01", "clean", 11, 2750, false],
+    ["holdout-02", "wrong_number", 13, 9150, false],
+    ["holdout-03", "missing_evidence", 12, 9350, true],
+    ["holdout-04", "screening_unavailable", 14, 9550, true],
+    ["holdout-05", "injection_attempt", 12, 4500, false],
+    ["holdout-06", "invented_citation", 15, 9750, false],
+    ["holdout-07", "cross_run", 16, 9850, false],
+    ["holdout-08", "conflicting_values", 13, 9650, false],
+    ["holdout-09", "clean", 17, 1500, true],
+    ["holdout-10", "wrong_number", 18, 9950, false],
+    ["holdout-11", "missing_evidence", 19, 30000, false],
+    ["holdout-12", "clean", 20, 3500, false]
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "recorded_at": "2026-10-25T05:31:37.390066+00:00",
+  "provider": "ollama",
+  "model": "llama3.2:3b",
+  "live_model": true,
+  "tasks": 10,
+  "complete_model_runs": 0,
+  "mean_required_tool_coverage": 1.0,
+  "invalid_calls": 24,
+  "model_calls": 54,
+  "median_latency_ms": 23560.265,
+  "exact_extract_fidelity": true,
+  "abstention_cases": [
+    {
+      "question": "How do I bake a chocolate cake?",
+      "mode": "abstained",
+      "correct": true
+    },
+    {
+      "question": "Explain quantum gravity",
+      "mode": "abstained",
+      "correct": true
+    }
+  ],
+  "results": [
+    {
+      "id": "INV-01",
+      "scenario": "structuring",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 6,
+      "invalid_calls": 2,
+      "latency_ms": 28214.84,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "FILE_SAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-02",
+      "scenario": "routine",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 5,
+      "invalid_calls": 2,
+      "latency_ms": 27276.5,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "CLEAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-03",
+      "scenario": "screening",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 4,
+      "invalid_calls": 2,
+      "latency_ms": 14067.93,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "HOLD",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-04",
+      "scenario": "review",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "lookup_account",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 6,
+      "invalid_calls": 3,
+      "latency_ms": 24147.87,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "REVIEW",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-05",
+      "scenario": "structuring",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 7,
+      "invalid_calls": 3,
+      "latency_ms": 20580.13,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "FILE_SAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-06",
+      "scenario": "screening",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 4,
+      "invalid_calls": 2,
+      "latency_ms": 13845.66,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "HOLD",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-07",
+      "scenario": "review",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 4,
+      "invalid_calls": 2,
+      "latency_ms": 22972.66,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "REVIEW",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-08",
+      "scenario": "routine",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 6,
+      "invalid_calls": 3,
+      "latency_ms": 32726.75,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "CLEAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-09",
+      "scenario": "structuring",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 6,
+      "invalid_calls": 2,
+      "latency_ms": 20281.62,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "FILE_SAR",
+      "invariant_errors": []
+    },
+    {
+      "id": "INV-10",
+      "scenario": "review",
+      "mode": "fallback",
+      "model_selected_tools": [
+        "graph_neighbours",
+        "list_transactions",
+        "sanctions_screen"
+      ],
+      "required_tools": [
+        "graph_neighbours",
+        "sanctions_screen"
+      ],
+      "required_tool_coverage": 1.0,
+      "complete_model_run": false,
+      "exact_extract_fidelity": true,
+      "model_calls": 6,
+      "invalid_calls": 3,
+      "latency_ms": 37455.73,
+      "errors": [
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish.",
+        "Duplicate tool call; choose another tool or finish."
+      ],
+      "deterministic_decision": "REVIEW",
+      "invariant_errors": []
+    }
+  ],
+  "limitations": [
+    "Required-tool coverage is a rubric, not semantic reasoning accuracy.",
+    "Extract fidelity is guaranteed by code-owned text, not an LLM-as-judge metric.",
+    "Fallback/scripted actions never count as successful model selections.",
+    "Ten synthetic tasks are not evidence of real-world AML effectiveness."
+  ]
+}

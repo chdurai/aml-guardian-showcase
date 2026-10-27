@@ -1,0 +1,282 @@
+{
+  "description": "Browser automation scenarios. Single source for the specs (tag @<id>), the runner (scripts/scenarios.mjs) and the generated page public/scenarios.html. Synthetic data only.",
+  "groups": [
+    {
+      "id": "stories",
+      "title": "Investigation stories",
+      "summary": "Open each preloaded case and follow it the way an investigator would."
+    },
+    {
+      "id": "agents",
+      "title": "The multi-agent team at work",
+      "summary": "See which specialists ran, in what order, and what the local AI wrote."
+    },
+    {
+      "id": "studio",
+      "title": "AI-designed stories",
+      "summary": "Invent your own story or let an AI red team try to beat the rules—code builds and checks everything."
+    },
+    {
+      "id": "everyday",
+      "title": "Everyday workspace use",
+      "summary": "Start new work, find cases, share links and use a phone."
+    },
+    {
+      "id": "trust",
+      "title": "Safety and honesty",
+      "summary": "Check what the tool refuses to do and how it behaves when things go wrong."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "transfer-pattern",
+      "group": "stories",
+      "title": "Suspicious transfer pattern → report consideration",
+      "story": "ACC-4471 receives several deposits just under $10,000 and moves money on. The team scores it 100/100 and stops for a human.",
+      "checks": [
+        "Score 100/100 with a rule-by-rule breakdown",
+        "Money in $38,300 and out $28,000",
+        "Every finding names its specialist and source",
+        "Draft is marked as not filed",
+        "Workflow stops at the human checkpoint"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "routine-clear",
+      "group": "stories",
+      "title": "Routine transfer closes automatically",
+      "story": "ACC-0001 is an ordinary $3,000 payment. The team scores it 15/100 and closes it without involving a human.",
+      "checks": [
+        "Score 15/100 → no escalation",
+        "Evidence critic is skipped",
+        "Case closes automatically with no human approval recorded"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "sanctions-hold",
+      "group": "stories",
+      "title": "Screening hit puts the case on hold",
+      "story": "ACC-9999 involves a name on the illustrative screening list. The case is held until a human resolves it.",
+      "checks": [
+        "Recommendation is Hold",
+        "Screening method is labelled illustrative, not a live sanctions service",
+        "Suspicious names appear as plain text, never as hidden markers"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "needs-review",
+      "group": "stories",
+      "title": "Borderline case goes to review",
+      "story": "ACC-0040 has some signals but not enough for a report. The team recommends a human review.",
+      "checks": [
+        "Score 40/100 → review recommended",
+        "Needs your decision",
+        "Signals worth a closer look are listed"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "agent-team",
+      "group": "agents",
+      "title": "Follow the specialist team step by step",
+      "story": "Walk agent by agent through the transfer-pattern case and see what each specialist received and recorded.",
+      "checks": [
+        "The path matches the recorded run, in order",
+        "Next and Previous agent navigation work end to end",
+        "Timeline shows measured durations"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "compare-paths",
+      "group": "agents",
+      "title": "One team, four decision paths",
+      "story": "Compare the four recorded runs side by side, then jump into one of them.",
+      "checks": [
+        "All four outcomes come from real runs",
+        "\"Open recorded run\" lands on that case"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "ai-draft-verifier",
+      "group": "agents",
+      "title": "AI writes, code verifies",
+      "story": "With the local model on, the AI writes each draft sentence and code checks it against verified facts. Without the model, the app says so honestly.",
+      "checks": [
+        "Every sentence shows the facts it cites",
+        "Sentences the verifier caught are shown, not hidden",
+        "Model, attempts and timing are visible",
+        "Without a model the draft is labelled stub narration"
+      ],
+      "creates": false,
+      "model": true
+    },
+    {
+      "id": "policy-references",
+      "group": "agents",
+      "title": "Ask for policy references without changing a case",
+      "story": "Ask about a screening hold, inspect exact local notes and their background links, then try an unrelated question. LangChain retrieves, the local AI selects when available, and case decisions remain unchanged.",
+      "checks": [
+        "Case snapshot is separate from educational guidance",
+        "Every displayed passage has a local reference ID and source type",
+        "Unrelated questions abstain rather than inventing an answer",
+        "Risk score, recommendation and case activity remain unchanged"
+      ],
+      "creates": false,
+      "model": true
+    },
+    {
+      "id": "story-studio",
+      "group": "studio",
+      "title": "Invent a story and test the AI's prediction",
+      "story": "Describe a situation in plain English. The local model designs a bounded recipe and predicts the outcome before the run; code builds the transactions and the same agent team decides.",
+      "checks": [
+        "The four-step pipeline is explained before anything runs",
+        "Code-built transactions use synthetic STORY- identifiers within bounds",
+        "The locked prediction is compared with the team's actual result"
+      ],
+      "creates": true,
+      "model": false
+    },
+    {
+      "id": "red-team-challenge",
+      "group": "studio",
+      "title": "Let an AI red team try to beat the rules",
+      "story": "A red-team agent gets up to three rounds, learning which rules fired each time. The team investigates its best valid attempt and the result is scored honestly: caught, partly caught or slipped past.",
+      "checks": [
+        "Every round shows money moved, rule score and the rules that fired",
+        "Exactly one attempt is marked as investigated",
+        "The verdict matches the team's real recommendation, with blind spots explained"
+      ],
+      "creates": true,
+      "model": false
+    },
+    {
+      "id": "studio-guardrails",
+      "group": "studio",
+      "title": "Story studio guardrails",
+      "story": "Try a too-short story and one that hides an instruction. The studio refuses the first and neutralises the second before any model sees it.",
+      "checks": [
+        "Too-short stories cannot be submitted",
+        "Instruction-like text is flagged and redacted",
+        "The case is still an ordinary synthetic investigation"
+      ],
+      "creates": true,
+      "model": false
+    },
+    {
+      "id": "first-visit",
+      "group": "everyday",
+      "title": "First visit: get oriented",
+      "story": "A newcomer opens the workspace, reads how it works and finds the beginner's guide.",
+      "checks": [
+        "Synthetic environment is clearly labelled",
+        "\"How it works\" explains the workflow",
+        "Beginner's guide opens"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "new-investigation",
+      "group": "everyday",
+      "title": "Start a brand-new investigation",
+      "story": "Pick a practice scenario, run the whole team live and watch the case arrive in the queue.",
+      "checks": [
+        "New case appears in the queue",
+        "Live status ends at the human checkpoint",
+        "Specialist findings are filled in"
+      ],
+      "creates": true,
+      "model": false
+    },
+    {
+      "id": "find-cases",
+      "group": "everyday",
+      "title": "Find cases with search and filters",
+      "story": "Narrow the queue by account, party name and lifecycle state.",
+      "checks": [
+        "Search by account and by party",
+        "Filter by lifecycle",
+        "Clear message when nothing matches"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "share-link",
+      "group": "everyday",
+      "title": "Share a link to a case",
+      "story": "Open a link straight to a case draft, reload the page, then go back a step.",
+      "checks": [
+        "Link opens the exact case and tab",
+        "Reload keeps your place",
+        "Browser Back returns to the previous step"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "phone",
+      "group": "everyday",
+      "title": "Use it on a phone",
+      "story": "Follow a whole case journey on a 390-pixel-wide phone screen.",
+      "checks": [
+        "No sideways scrolling on any step",
+        "All four steps reachable"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "safety-limits",
+      "group": "trust",
+      "title": "Nothing is filed; decisions need a named human",
+      "story": "Confirm the tool never files a report, only accepts a decision with a name, a reason and a checklist, and refuses customer data from the browser.",
+      "checks": [
+        "No control files a report; Submit stays disabled until the decision is complete",
+        "Code blocks actions the policy does not allow, and says why",
+        "The browser cannot send customer data, incomplete decisions or cross-site commands"
+      ],
+      "creates": false,
+      "model": false
+    },
+    {
+      "id": "human-decision",
+      "group": "trust",
+      "title": "Record a decision with four-eyes escalation",
+      "story": "A screening HOLD reaches you. Find the decision panel, see why closing is blocked, escalate it, then finish it as a different senior reviewer.",
+      "checks": [
+        "The banner says a decision is needed and Go to decision opens the panel",
+        "A HOLD cannot be closed at level 1; the reason is shown",
+        "The same person cannot finish their own escalation",
+        "The case closes with a named decision history"
+      ],
+      "creates": true,
+      "model": false
+    },
+    {
+      "id": "connection-problems",
+      "group": "trust",
+      "title": "When a case or the connection goes missing",
+      "story": "Open a case that no longer exists, then lose the connection to the analysis service and get it back.",
+      "checks": [
+        "A missing case is explained",
+        "Lost connection shows Retry and marks data as stale",
+        "Retry recovers once the service is back"
+      ],
+      "creates": false,
+      "model": false
+    }
+  ]
+}

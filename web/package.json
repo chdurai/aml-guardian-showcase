@@ -1,0 +1,50 @@
+{
+  "name": "aml-guardian-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run src",
+    "test:e2e": "playwright test --project=checks",
+    "demo:e2e": "playwright test --project=demo --headed",
+    "demo:slow": "DEMO_SPEED=slow playwright test --project=demo --headed",
+    "demo:fast": "DEMO_SPEED=fast playwright test --project=demo --headed",
+    "demo:step": "playwright test --project=demo --headed --debug",
+    "e2e:report": "playwright show-report",
+    "scenarios": "node scripts/scenarios.mjs",
+    "scenarios:list": "node scripts/scenarios.mjs list",
+    "scenarios:all": "node scripts/scenarios.mjs run all",
+    "scenarios:watch": "node scripts/scenarios.mjs run all --watch",
+    "scenarios:page": "node scripts/scenarios.mjs page",
+    "test-data:seed": "node scripts/test-data.mjs seed",
+    "test-data:reset": "node scripts/test-data.mjs reset"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.3.0",
+    "@mui/material-nextjs": "^7.3.0",
+    "@tanstack/react-query": "^5.90.0",
+    "lucide-react": "^0.468.0",
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@playwright/test": "^1.56.0",
+    "@axe-core/playwright": "^4.11.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.5"
+  }
+}

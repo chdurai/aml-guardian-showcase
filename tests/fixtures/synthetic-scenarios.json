@@ -1,0 +1,57 @@
+{
+  "description": "Golden expectations for the four fixed synthetic scenarios. Verified against real graph runs by tests/test_test_data.py and web/e2e. Synthetic data only.",
+  "scenarios": [
+    {
+      "scenario": "structuring",
+      "title": "Transfer pattern",
+      "account": "ACC-4471",
+      "score": 100,
+      "recommendation": "FILE_SAR",
+      "recommendationLabel": "Report consideration",
+      "status": "awaiting_human",
+      "statusLabel": "Needs your decision",
+      "incoming": 38300,
+      "outgoing": 28000,
+      "route": ["alert_intake", "entity_resolution", "graph_analysis", "typology_rag", "sanctions_screening", "risk_scoring", "evidence_critic", "sar_drafter", "hitl_approval"]
+    },
+    {
+      "scenario": "routine",
+      "title": "Routine transfer",
+      "account": "ACC-0001",
+      "score": 15,
+      "recommendation": "CLEAR",
+      "recommendationLabel": "No escalation recommended",
+      "status": "completed",
+      "statusLabel": "Workflow completed",
+      "incoming": 3000,
+      "outgoing": 0,
+      "route": ["alert_intake", "entity_resolution", "graph_analysis", "typology_rag", "sanctions_screening", "risk_scoring", "sar_drafter", "case_close"]
+    },
+    {
+      "scenario": "screening",
+      "title": "Screening indicator",
+      "account": "ACC-9999",
+      "score": 100,
+      "recommendation": "HOLD",
+      "recommendationLabel": "Hold · resolution required",
+      "status": "awaiting_human",
+      "statusLabel": "Needs your decision",
+      "incoming": 0,
+      "outgoing": 0,
+      "route": ["alert_intake", "entity_resolution", "graph_analysis", "typology_rag", "sanctions_screening", "risk_scoring", "evidence_critic", "sar_drafter", "hitl_approval"]
+    },
+    {
+      "scenario": "review",
+      "title": "Needs a closer look",
+      "account": "ACC-0040",
+      "score": 40,
+      "recommendation": "REVIEW",
+      "recommendationLabel": "Review recommended",
+      "status": "awaiting_human",
+      "statusLabel": "Needs your decision",
+      "incoming": 9500,
+      "outgoing": 0,
+      "route": ["alert_intake", "entity_resolution", "graph_analysis", "typology_rag", "sanctions_screening", "risk_scoring", "evidence_critic", "sar_drafter", "hitl_approval"]
+    }
+  ]
+}
