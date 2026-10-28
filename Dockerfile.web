@@ -9,6 +9,9 @@ FROM node:24-bookworm-slim AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY web/ ./
+# e2e/test-data.ts imports this golden file from outside web/; the type checker
+# needs it present during `next build` even though e2e code never ships.
+COPY tests/fixtures/synthetic-scenarios.json /tests/fixtures/synthetic-scenarios.json
 RUN npm run build
 
 FROM node:24-bookworm-slim
