@@ -36,9 +36,20 @@ Use Python **3.12** for the documented preflight/CI environment, Node.js **24+**
 and npm. The Python package minimum is 3.11. Commands below use a macOS/Linux
 shell; adapt virtual-environment paths on Windows.
 
+**One command:**
+
 ```bash
 git clone https://github.com/chdurai/aml-guardian-showcase.git
 cd aml-guardian-showcase
+./start.sh
+```
+
+The script installs missing Python/web dependencies (first run only), starts the
+API and workbench, and opens the browser at **http://127.0.0.1:3000**. Ctrl+C
+stops both services. `./start.sh --help` lists options (`--demo`, `--ollama`,
+`--no-open`). The manual two-terminal setup:
+
+```bash
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -e ".[web,dev]"
 .venv/bin/python -m uvicorn aml_guardian.api:app --host 127.0.0.1 --port 8000
