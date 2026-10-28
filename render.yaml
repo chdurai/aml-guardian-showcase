@@ -1,0 +1,39 @@
+# Render blueprint: one-click free deployment of the AML Guardian demo.
+# Render dashboard -> New -> Blueprint -> pick this repository -> Apply.
+# Two free web services are created: the FastAPI API and the Next.js workbench.
+# Free-tier notes: services sleep after ~15 minutes idle (cold start ~1 minute),
+# and local case data resets on restart/redeploy (ephemeral SQLite).
+services:
+  - type: web
+    name: aml-guardian-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.api
+    plan: free
+    healthCheckPath: /api/v1/runtime
+    envVars:
+      # Deterministic stub narration: free, no key, nothing leaves the service.
+      - key: AML_LLM_PROVIDER
+        value: stub
+      # Lets demo visitors seed/reset the four synthetic scenarios from the UI.
+      - key: AML_ENABLE_TEST_DATA_CONTROLS
+        value: "1"
+      # Optional: real-model narration through any OpenAI-compatible API
+      # (for example Groq's free tier). Only synthetic case data is sent.
+      # - key: AML_LLM_PROVIDER
+      #   value: openai
+      # - key: AML_MODEL
+      #   value: llama-3.1-8b-instant
+      # - key: AML_OPENAI_BASE_URL
+      #   value: https://api.groq.com/openai/v1
+      # - key: AML_OPENAI_API_KEY
+      #   sync: false  # prompted for the secret value at blueprint creation
+  - type: web
+    name: aml-guardian-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile.web
+    plan: free
+    envVars:
+      # Public URL of the API service above. If you rename aml-guardian-api,
+      # update this value to https://<your-api-service-name>.onrender.com.
+      - key: AML_API_URL
+        value: https://aml-guardian-api.onrender.com

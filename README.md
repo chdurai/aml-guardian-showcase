@@ -68,6 +68,31 @@ Open **http://127.0.0.1:3000**. Use that hostname consistently. The web server's
 For local production-mode verification use `npm run build` followed by
 `npm start`, rather than the development server.
 
+## Deploy a public demo (free)
+
+The included [Render](https://render.com) blueprint ([render.yaml](render.yaml))
+deploys two free Docker web services: [Dockerfile.api](Dockerfile.api) (FastAPI)
+and [Dockerfile.web](Dockerfile.web) (Next.js workbench).
+
+1. Sign in to Render → **New → Blueprint** → select this repository → **Apply**.
+2. Wait for both services to build (first build takes a few minutes).
+3. Open `https://aml-guardian-web.onrender.com` and share that link.
+
+Free-tier behavior: services sleep after ~15 minutes idle (first load then takes
+about a minute), and local case data resets on restart (ephemeral SQLite). There
+is **no authentication**: anyone with the link can click through, so only
+synthetic data may ever be entered. The blueprint enables the in-UI seed/reset
+controls for the four synthetic scenarios.
+
+**LLM in the cloud.** The default `AML_LLM_PROVIDER=stub` is free and
+deterministic. Running Ollama on free tiers is not practical (no RAM/GPU
+headroom). For real-model narration, any OpenAI-compatible API works with no
+code changes: set `AML_LLM_PROVIDER=openai`, `AML_MODEL`,
+`AML_OPENAI_BASE_URL` (for example Groq's free tier,
+`https://api.groq.com/openai/v1`) and `AML_OPENAI_API_KEY` — see the commented
+block in [render.yaml](render.yaml). Only synthetic case data is sent to the
+provider, and the deterministic sentence verifier still applies.
+
 ### A short demonstration
 
 1. Create a fixed synthetic case from the workbench.

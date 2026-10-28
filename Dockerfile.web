@@ -1,0 +1,21 @@
+# Next.js workbench for cloud deployment. Set AML_API_URL to the deployed API
+# URL (server-only; never sent to the browser). Listens on $PORT (default 3000).
+FROM node:24-bookworm-slim AS deps
+WORKDIR /app
+COPY web/package.json web/package-lock.json ./
+RUN npm ci --no-audit --no-fund
+
+FROM node:24-bookworm-slim AS build
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY web/ ./
+RUN npm run build
+
+FROM node:24-bookworm-slim
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=build --chown=node:node /app ./
+USER node
+
+EXPOSE 3000
+CMD ["sh", "-c", "node_modules/.bin/next start --hostname 0.0.0.0 --port ${PORT:-3000}"]
