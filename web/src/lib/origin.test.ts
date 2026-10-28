@@ -9,4 +9,10 @@ describe("same-origin browser commands", () => {
     for (const origin of [null, "null", "not-a-url", "https://127.0.0.1:3000", "http://other.test:3000", "http://127.0.0.1:4000"])
       expect(isSameOrigin(origin, "127.0.0.1:3000", "http:")).toBe(false);
   });
+  it("trusts x-forwarded-proto behind a TLS-terminating proxy", () => {
+    expect(isSameOrigin("https://app.example.com", "app.example.com", "http:", "https")).toBe(true);
+    expect(isSameOrigin("https://app.example.com", "app.example.com", "http:", "https, https")).toBe(true);
+    expect(isSameOrigin("http://app.example.com", "app.example.com", "http:", "https")).toBe(false);
+    expect(isSameOrigin("https://evil.example.com", "app.example.com", "http:", "https")).toBe(false);
+  });
 });

@@ -17,7 +17,7 @@ async function forward(request: NextRequest, context: { params: Promise<{ path?:
   if (request.method === "POST") {
     if (path.length === 1) return NextResponse.json({ detail: "Action not supported." }, { status: 405 });
     const origin = request.headers.get("origin");
-    if (!isSameOrigin(origin, request.headers.get("host"), request.nextUrl.protocol))
+    if (!isSameOrigin(origin, request.headers.get("host"), request.nextUrl.protocol, request.headers.get("x-forwarded-proto")))
       return NextResponse.json({ detail: "A same-origin request is required." }, { status: 403 });
     let input: unknown;
     try { input = await request.json(); }

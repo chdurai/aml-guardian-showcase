@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 300;
 
 export async function POST(request: NextRequest) {
-  if (!isSameOrigin(request.headers.get("origin"), request.headers.get("host"), request.nextUrl.protocol))
+  if (!isSameOrigin(request.headers.get("origin"), request.headers.get("host"), request.nextUrl.protocol, request.headers.get("x-forwarded-proto")))
     return NextResponse.json({ detail: "A same-origin request is required." }, { status: 403 });
   let input: unknown;
   try { input = await request.json(); }
